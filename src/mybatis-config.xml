@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias="Application" type="com.em.bean.Application" />
+        <typeAlias alias="Equipment" type="com.em.bean.Equipment" />
+        <typeAlias alias="Profile" type="com.em.bean.Profile" />
+        <typeAlias alias="Property" type="com.em.bean.Property" />
+        <typeAlias alias="Command" type="com.em.bean.Command" />
+        <typeAlias alias="CommandHis" type="com.em.bean.CommandHis" />
+    </typeAliases>
+    <mappers>
+    	<mapper resource="com/em/mapper/ApplicationMapper.xml"/>
+    	<mapper resource="com/em/mapper/EquipMapper.xml"/>
+    	<mapper resource="com/em/mapper/ProfileMapper.xml"/>
+    </mappers>
+</configuration>

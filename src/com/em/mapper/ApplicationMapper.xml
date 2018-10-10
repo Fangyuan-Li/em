@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.em.mapper.ApplicationMapper">
+	<resultMap type="Application" id="ApplicationRM">
+		<result property="appName" column="appName" />
+		<result property="appId" column="appId" />
+		<result property="secret" column="secret" />
+	</resultMap>
+
+	<insert id="appCreate" parameterType="Application">
+		insert into dx_application
+		(appName,appId,secret)
+		values
+		(#{appName},#{appId},#{secret})
+	</insert>
+	
+	<select id="findAppList" resultType="Application">
+		select * from dx_application
+	</select>
+	
+	<update id="updateApp" parameterType="string">
+		update dx_application set secret = #{1} where appId = #{0}
+	</update>
+	
+	<select id="finSecret" resultType="String" parameterType="String">
+		select secret from dx_application where appId = #{0}
+	</select>
+	
+	<delete id="deleteApp" parameterType="String">
+		delete from dx_application where appId = #{0}
+	</delete>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.em.mapper.EquipMapper">
+	<!-- <resultMap type="Application" id="ApplicationRM">
+		<result property="appId" column="appId" />
+		<result property="secret" column="secret" />
+	</resultMap> -->
+
+	<select id="findEquipList" resultType="Equipment" parameterType="String">
+		select * from dx_equipment where appId = #{appId}
+	</select>
+	
+	<insert id="addEquip" parameterType="String">
+		insert into dx_equipment (appId,deviceName,deviceId) values (#{0},#{1},#{2})
+	</insert>
+	
+	<delete id="deleteEquip" parameterType="String">
+		delete from dx_equipment where deviceId = #{0}
+	</delete>
+	
+	<select id="findAppId" resultType="String" parameterType="String">
+		select appId from dx_equipment where deviceId = #{0}
+	</select>
+</mapper>

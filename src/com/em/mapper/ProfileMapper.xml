@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.em.mapper.ProfileMapper">
+
+	<select id="findEquipList" resultType="Equipment" parameterType="String">
+		select * from dx_equipment where appId = #{appId}
+	</select>
+	
+	<insert id="createProfile" parameterType="Profile">
+		insert into dx_profile (id,appName,type,producer,serviceId,method) values (#{id},#{appName},#{type},#{producer},#{serviceId},#{method})
+	</insert>
+	
+	<delete id="deleteEquip" parameterType="String">
+		delete from dx_equipment where deviceId = #{0}
+	</delete>
+	
+</mapper>
